@@ -1,0 +1,283 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.slide-in-up {
+  animation: slideInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.slide-in-down {
+  animation: slideInDown 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e3a8a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #312e81;
+}
+
+/* SCROLL ANIMATIONS SYSTEM */
+.scroll-animate {
+  opacity: 0;
+  transform: translate3d(0, 40px, 0);
+  transition-property: opacity, transform;
+  transition-duration: 0.6s;
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform, opacity;
+}
+
+/* SHOW */
+.scroll-animate.show {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* ANIMATION TYPES */
+.scroll-animate[data-animation="fade-up"] {
+  transform: translate3d(0, 40px, 0);
+}
+
+.scroll-animate[data-animation="fade-down"] {
+  transform: translate3d(0, -40px, 0);
+}
+
+.scroll-animate[data-animation="fade-left"] {
+  transform: translate3d(40px, 0, 0);
+}
+
+.scroll-animate[data-animation="fade-right"] {
+  transform: translate3d(-40px, 0, 0);
+}
+
+.scroll-animate.show[data-animation] {
+  transform: translate3d(0, 0, 0);
+}
+
+/* DIRECTION AWARE EXIT */
+.scroll-animate:not(.show)[data-direction="up"] {
+  transform: translate3d(0, -40px, 0);
+}
+
+.scroll-animate:not(.show)[data-direction="down"] {
+  transform: translate3d(0, 40px, 0);
+}
+
+/* Enhanced transitions */
+* {
+  transition: all 0.3s ease;
+}
+
+/* Enhanced button transitions */
+button, a {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Smooth hover effects */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Smooth scrolling for all elements */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced scroll-based animations */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scroll-animate.animate-on-scroll {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Parallax effect for enhanced motion */
+.parallax-element {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Enhanced scroll performance */
+body {
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Smooth opacity transitions */
+.opacity-transition {
+  transition: opacity 0.4s ease-in-out;
+}
+
+/* Quick fade in/out transitions */
+.quick-fade {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.quick-fade-out {
+  animation: fadeOut 0.3s ease-in forwards;
+}
+
+/* Enhanced motion for scroll direction */
+.scroll-up {
+  animation: slideInUp 0.6s ease-out forwards;
+}
+
+.scroll-down {
+  animation: slideInDown 0.6s ease-out forwards;
+}
+
+/* Custom scrollbar with smooth interaction */
+::-webkit-scrollbar {
+  width: 10px;
+  transition: width 0.3s ease;
+}
+
+::-webkit-scrollbar:hover {
+  width: 12px;
+}
+
+/* Smooth section transitions */
+section {
+  transition: all 0.5s ease;
+}
+
+/* Enhanced focus states for better motion */
+*:focus {
+  transition: all 0.2s ease;
+}
+
+/* Smooth resize transitions */
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    animation-duration: 6s !important;
+  }
+}
