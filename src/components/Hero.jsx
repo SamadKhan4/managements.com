@@ -7,14 +7,14 @@ const Hero = () => {
   
   const slides = [
     {
-      image: '/images/banner/banner-talenthub.webp',
+      image: 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
       title: 'LEARNING EXCELLENCE',
       subtitle: 'Transform Your Knowledge',
       description: 'Elite Learning Academy provides comprehensive educational programs, connecting passionate learners with expert instructors to foster growth and success.',
       buttonText: 'ENROLL NOW'
     },
     {
-      image: '/images/banner/slider2.webp',
+      image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
       title: 'CAREER ADVANCEMENT',
       subtitle: 'Master New Skills',
       description: 'Our courses are designed to help you advance your career with practical, industry-relevant knowledge and skills.',
@@ -55,7 +55,7 @@ const Hero = () => {
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${slide.image})` }}
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/80 via-indigo-800/70 to-emerald-700/80"></div>
+            <div className="absolute inset-0 bg-primary/80"></div>
           </div>
           
           {/* Content */}
@@ -80,7 +80,7 @@ const Hero = () => {
                 {slide.description}
               </p>
               <button 
-                className="bg-emerald-500 hover:bg-emerald-400 text-white font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 slide-in-left flex items-center mx-auto hover-lift"
+                className="bg-accent hover:bg-accent/90 text-white font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 slide-in-left flex items-center mx-auto hover-lift"
                 style={{ animationDelay: `${getTextDelay(3)}s` }}
               >
                 {slide.buttonText} <ArrowRight className="ml-2" size={20} />

@@ -10,14 +10,14 @@ const ServiceCard = ({ icon, title, description, image, delay = 0 }) => {
           alt={title} 
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+        <div className="absolute inset-0 bg-black/70"></div>
         <div className="absolute bottom-4 left-4 text-white">
           <div className="text-4xl mb-2">{icon}</div>
           <h3 className="text-xl font-bold">{title}</h3>
         </div>
       </div>
       <div className="p-6">
-        <p className="text-gray-600">{description}</p>
+        <p className="text-muted-foreground">{description}</p>
       </div>
     </div>
   );
