@@ -32,7 +32,7 @@ const Navbar = () => {
               alt="Elite Managements Logo"
               className="h-10 w-auto transition-transform hover:scale-105"
             />
-            <span className="text-xl font-semibold tracking-wide">
+            <span className="text-xl text-gradient font-semibold tracking-wide">
               ELITE MANAGEMENTS
             </span>
           </Link>
