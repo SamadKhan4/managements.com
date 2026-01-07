@@ -1,232 +1,448 @@
-import { useState } from 'react';
-import ScrollAnimation from '../components/ScrollAnimation';
+import { useState, useEffect } from "react";
 import Footer from '../components/Footer';
+import CountUp from "../components/CountUp";
+import ScrollAnimation from "../components/ScrollAnimation";
 
 const About = () => {
-  const [activeTab, setActiveTab] = useState('vision');
+  const [activeTab, setActiveTab] = useState("vision");
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const values = [
-    { title: 'Excellence', description: 'We maintain excellence in all our courses and learning experiences.' },
-    { title: 'Innovation', description: 'We continuously innovate to provide the best learning methods.' },
-    { title: 'Accessibility', description: 'We make quality education accessible to everyone.' },
-    { title: 'Growth', description: 'We foster personal and professional growth for all learners.' }
+    { 
+      title: "Excellence", 
+      description: "We maintain excellence in all our courses and learning experiences.",
+      icon: "⚡"
+    },
+    { 
+      title: "Innovation", 
+      description: "We continuously innovate to provide the best learning methods.",
+      icon: "🚀"
+    },
+    { 
+      title: "Accessibility", 
+      description: "We make quality education accessible to everyone.",
+      icon: "🌍"
+    },
+    { 
+      title: "Growth", 
+      description: "We foster personal and professional growth for all learners.",
+      icon: "📈"
+    },
   ];
+
+ const stats = [
+  { value: 12000, label: "Students Trained" },
+  { value: 150, label: "Expert Mentors" },
+  { value: 300, label: "Courses Offered" },
+  { value: 95, label: "Placement Success (%)" },
+];
+
+  const journey = [
+  {
+    year: "2011",
+    title: "Foundation",
+    desc: "Elite Learning Academy was established with a vision to deliver quality education."
+  },
+  {
+    year: "2014",
+    title: "Course Expansion",
+    desc: "Expanded into professional and career-focused training programs."
+  },
+  {
+    year: "2018",
+    title: "Industry Partnerships",
+    desc: "Collaborated with industry leaders to deliver practical learning."
+  },
+  {
+    year: "2022",
+    title: "Digital Transformation",
+    desc: "Introduced hybrid and online learning platforms."
+  },
+  {
+    year: "2025",
+    title: "Pan-India Presence",
+    desc: "Reached thousands of learners across the country."
+  }
+];
+
 
   return (
     <div className="min-h-screen bg-muted">
-      {/* Hero Banner */}
-      <ScrollAnimation>
-        <div className="relative h-96 bg-primary flex items-center justify-center">
-          <div className="text-center text-white">
-            <h1 className="text-5xl font-bold mb-4 text-primary-foreground">About elite Us</h1>
-            <p className="text-xl text-primary-foreground">Elite Learning Academy - Your Educational Partner</p>
+
+      {/* ENHANCED HERO SECTION */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        {/* Background with Parallax */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/95 to-primary/90" />
+          <img
+            src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1920&q=80"
+            alt="Elite Learning Academy"
+            className="w-full h-full object-cover opacity-30"
+            style={{ transform: `translateY(${scrollY * 0.3}px)` }}
+          />
+          
+          {/* Animated gradient orbs */}
+          <div className="absolute top-20 right-20 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-20 left-20 w-96 h-96 bg-primary/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        </div>
+
+        
+
+        {/* Content */}
+        <div className="relative z-10 text-center max-w-5xl px-6">
+          <span className="inline-block mb-6 px-6 py-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm tracking-widest uppercase font-semibold animate-fade-in">
+            About Elite Learning Academy
+          </span>
+
+          <h1 className="text-6xl md:text-8xl font-bold text-white leading-tight mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            Shaping Futures Through <br />
+            <span className="text-black/60">Quality Education</span>
+          </h1>
+
+          <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-10 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+            Since 2011, Elite Learning Academy has empowered students and professionals
+            with industry-focused education, expert mentorship, and career-driven learning paths.
+          </p>
+
+          <div className="flex gap-4 justify-center animate-fade-in" style={{ animationDelay: '0.6s' }}>
+            <button className="px-8 py-4 bg-white text-primary rounded-lg font-semibold hover:bg-white/90 hover:scale-105 transition-all shadow-xl">
+              Explore Courses
+            </button>
+            <button className="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/30 text-white rounded-lg font-semibold hover:bg-white/20 transition-all">
+              Learn More
+            </button>
           </div>
         </div>
-      </ScrollAnimation>
 
-      {/* Welcome Section */}
-      <section className="py-20 px-4">
+       
+        {/* Bottom gradient fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-muted to-transparent" />
+      </section>
+
+      {/* ================= STATS SECTION ================= */}
+<section className="py-24 px-4 bg-background">
+  <div className="max-w-7xl mx-auto">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
+      {stats.map((stat, i) => (
+        <div
+          key={i}
+          className="text-center group cursor-pointer"
+        >
+          <h3 className="text-5xl md:text-6xl font-extrabold text-primary mb-4 transition-transform group-hover:scale-110">
+            <CountUp end={stat.value} />
+          </h3>
+
+          <p className="text-muted-foreground text-lg font-medium">
+            {stat.label}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+
+      {/* WELCOME SECTION - Enhanced */}
+      <section className="py-24 px-4 bg-muted">
         <div className="max-w-7xl mx-auto">
-          <ScrollAnimation>
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-foreground mb-6">Welcome to Elite Learning Academy</h2>
-              <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
-                Founded in 2011, Elite Learning Academy has evolved into a premier educational institution, 
-                specializing in providing high-quality courses that bridge the gap between academic knowledge and practical skills.
-              </p>
-            </div>
-          </ScrollAnimation>
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4">
+              Our Story
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+              Welcome to Elite Learning Academy
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
+              Founded in 2011, Elite Learning Academy has evolved into a premier educational institution,
+              bridging the gap between academic knowledge and practical industry skills.
+            </p>
+          </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <ScrollAnimation animation="fade-left">
-                <div>
-                  <img 
-                    src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                    alt="Elite Learning Academy" 
-                    className="rounded-lg shadow-lg"
-                  />
-                </div>
-              </ScrollAnimation>
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-2xl blur-xl opacity-25 group-hover:opacity-50 transition" />
+              <img
+                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80"
+                alt="Elite Learning"
+                className="relative rounded-2xl shadow-2xl hover:scale-[1.02] transition-transform"
+              />
             </div>
+
             <div>
-              <ScrollAnimation animation="fade-right">
-                <div>
-                  <h3 className="text-3xl font-bold text-foreground mb-6">Our Academy Story</h3>
-                  <p className="text-muted-foreground mb-6">
-                    With over a decade of experience in education, we've built a reputation for excellence, 
-                    innovation, and unmatched learning experiences. Our journey began with a simple mission: to provide 
-                    quality education that empowers individuals to achieve their professional goals.
-                  </p>
-                  <p className="text-muted-foreground mb-6">
-                    Today, we continue to innovate and adapt to the ever-changing landscape of education, 
-                    staying ahead of trends and maintaining our position as industry leaders.
-                  </p>
+              <h3 className="text-3xl font-bold text-foreground mb-6">
+                Our Academy Story
+              </h3>
+              <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
+                With over a decade of experience, we've built a reputation for excellence,
+                innovation, and outcome-driven education.
+              </p>
+              <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
+                Today, we continue to evolve with industry trends while maintaining our
+                commitment to quality learning and career success.
+              </p>
+
+              <div className="grid grid-cols-3 gap-6">
+                <div className="text-center p-4 bg-card rounded-xl border border-border hover:border-primary transition">
+                  <div className="text-3xl font-bold text-primary">500+</div>
+                  <div className="text-muted-foreground text-sm mt-1">Courses</div>
                 </div>
-              </ScrollAnimation>
+                <div className="text-center p-4 bg-card rounded-xl border border-border hover:border-accent transition">
+                  <div className="text-3xl font-bold text-accent">100+</div>
+                  <div className="text-muted-foreground text-sm mt-1">Companies</div>
+                </div>
+                <div className="text-center p-4 bg-card rounded-xl border border-border hover:border-primary transition">
+                  <div className="text-3xl font-bold text-primary">50+</div>
+                  <div className="text-muted-foreground text-sm mt-1">Countries</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Learning Enhancement Section */}
-      <section className="py-20 px-4 bg-background">
-        <div className="max-w-7xl mx-auto">
-          <ScrollAnimation>
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-foreground mb-6">Learning Enhancement</h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                We're committed to helping professionals advance their careers through quality education
-              </p>
+     {/* ================= JOURNEY TIMELINE ================= */}
+<section className="py-28 px-4 bg-background">
+  <div className="max-w-6xl mx-auto">
+    
+    {/* Heading */}
+    <ScrollAnimation animation="fade-up">
+      <div className="text-center mb-20">
+        <span className="inline-block px-5 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-5">
+          Our Journey
+        </span>
+        <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+          Milestones of Excellence
+        </h2>
+        <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
+          A decade-long journey of innovation, growth, and educational impact
+        </p>
+      </div>
+    </ScrollAnimation>
+
+    {/* Timeline */}
+    <div className="relative">
+      
+      {/* Center Line */}
+      <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-primary via-accent to-primary hidden md:block" />
+
+      {journey.map((item, i) => (
+        <ScrollAnimation
+          key={i}
+          animation={i % 2 === 0 ? "fade-left" : "fade-right"}
+          delay={i * 120}
+        >
+          <div className="relative mb-20">
+            <div
+              className={`flex flex-col md:flex-row items-center ${
+                i % 2 === 0 ? "" : "md:flex-row-reverse"
+              }`}
+            >
+              {/* Card */}
+              <div className="flex-1 md:px-8">
+                <div
+                  className={`group bg-card border border-border rounded-2xl p-8 transition-all duration-500
+                    hover:border-primary hover:shadow-2xl hover:-translate-y-2
+                    ${i % 2 === 0 ? "md:text-right" : "md:text-left"}
+                  `}
+                >
+                  <div className="text-6xl font-extrabold text-primary/80 mb-4 group-hover:text-primary transition-colors">
+                    {item.year}
+                  </div>
+
+                  <h3 className="text-2xl font-bold text-foreground mb-3">
+                    {item.title}
+                  </h3>
+
+                  <p className="text-muted-foreground text-lg leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
+
+              {/* Dot */}
+              <div className="hidden md:flex relative z-10 items-center justify-center">
+                <div className="w-6 h-6 rounded-full bg-primary border-4 border-background shadow-xl animate-pulse" />
+              </div>
+
+              <div className="flex-1" />
             </div>
-          </ScrollAnimation>
+          </div>
+        </ScrollAnimation>
+      ))}
+    </div>
+  </div>
+</section>
+
+
+      {/* LEARNING ENHANCEMENT */}
+      <section className="py-24 px-4 bg-muted">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4">
+              What We Offer
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+              Learning Enhancement
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Helping professionals advance through structured, practical education.
+            </p>
+          </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <ScrollAnimation animation="fade-up" delay={100}>
-              <div className="bg-muted p-8 rounded-xl text-center">
-                <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center text-primary text-2xl font-bold mx-auto mb-6">1</div>
-                <h3 className="text-xl font-bold text-foreground mb-4">Skill Development</h3>
-                <p className="text-muted-foreground">Comprehensive training and development programs to enhance professional skills</p>
-              </div>
-            </ScrollAnimation>
-            <ScrollAnimation animation="fade-up" delay={200}>
-              <div className="bg-muted p-8 rounded-xl text-center">
-                <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center text-accent text-2xl font-bold mx-auto mb-6">2</div>
-                <h3 className="text-xl font-bold text-foreground mb-4">Expert Instruction</h3>
-                <p className="text-muted-foreground">Learn from industry experts with real-world experience</p>
-              </div>
-            </ScrollAnimation>
-            <ScrollAnimation animation="fade-up" delay={300}>
-              <div className="bg-muted p-8 rounded-xl text-center">
-                <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center text-primary text-2xl font-bold mx-auto mb-6">3</div>
-                <h3 className="text-xl font-bold text-foreground mb-4">Career Growth</h3>
-                <p className="text-muted-foreground">Strategic learning paths that align with career goals</p>
-              </div>
-            </ScrollAnimation>
-          </div>
-        </div>
-      </section>
-
-      {/* Vision & Mission Tabs */}
-      <section className="py-20 px-4">
-        <div className="max-w-4xl mx-auto">
-          <ScrollAnimation>
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-foreground mb-6">Our Vision & Mission</h2>
-            </div>
-          </ScrollAnimation>
-
-          <ScrollAnimation>
-            <div className="flex justify-center mb-8">
-              <div className="bg-muted rounded-lg p-1 flex">
-                <button
-                  className={`px-6 py-3 rounded-lg transition-colors duration-300 ${
-                    activeTab === 'vision' 
-                      ? 'bg-primary text-primary-foreground' 
-                      : 'text-muted-foreground hover:bg-muted/50'
-                  }`}
-                  onClick={() => setActiveTab('vision')}
-                >
-                  Our Vision
-                </button>
-                <button
-                  className={`px-6 py-3 rounded-lg transition-colors duration-300 ${
-                    activeTab === 'mission' 
-                      ? 'bg-primary text-primary-foreground' 
-                      : 'text-muted-foreground hover:bg-muted/50'
-                  }`}
-                  onClick={() => setActiveTab('mission')}
-                >
-                  Our Mission
-                </button>
-              </div>
-            </div>
-          </ScrollAnimation>
-
-          <ScrollAnimation>
-            <div className="bg-card rounded-xl shadow-lg p-8">
-              {activeTab === 'vision' && (
-                <div>
-                  <h3 className="text-2xl font-bold text-foreground mb-4">Our Vision</h3>
-                  <p className="text-muted-foreground text-lg">
-                    To be the leading educational institution that transforms potential into success, 
-                    fostering meaningful learning experiences that empower individuals to achieve their career goals.
-                  </p>
-                </div>
-              )}
-              {activeTab === 'mission' && (
-                <div>
-                  <h3 className="text-2xl font-bold text-foreground mb-4">Our Mission</h3>
-                  <p className="text-muted-foreground text-lg">
-                    To provide comprehensive, personalized educational experiences that create value for learners, 
-                    helping them develop the skills and knowledge needed to succeed in their chosen fields.
-                  </p>
-                </div>
-              )}
-            </div>
-          </ScrollAnimation>
-        </div>
-      </section>
-
-      {/* Learning Process Diagram */}
-      <section className="py-20 px-4 bg-muted">
-        <div className="max-w-7xl mx-auto">
-          <ScrollAnimation>
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-foreground mb-6">Our Learning Process</h2>
-              <p className="text-xl text-muted-foreground">Our comprehensive 6-step approach to successful learning</p>
-            </div>
-          </ScrollAnimation>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { step: 1, title: 'Assessment', desc: 'Understanding your learning needs' },
-              { step: 2, title: 'Course Selection', desc: 'Choosing the right course for you' },
-              { step: 3, title: 'Enrollment', desc: 'Getting started with your learning journey' },
-              { step: 4, title: 'Learning', desc: 'Engaging with course materials' },
-              { step: 5, title: 'Practice', desc: 'Applying concepts through projects' },
-              { step: 6, title: 'Certification', desc: 'Earning your certificate of completion' }
+              { title: "Skill Development", desc: "Industry-aligned skill building programs", icon: "🎯" },
+              { title: "Expert Instruction", desc: "Learn from real-world professionals", icon: "👨‍🏫" },
+              { title: "Career Growth", desc: "Clear learning paths with outcomes", icon: "📈" },
             ].map((item, index) => (
-              <ScrollAnimation key={index} animation="fade-up" delay={index * 100}>
-                <div className="bg-card p-6 rounded-xl shadow-lg text-center">
-                  <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-lg font-bold mx-auto mb-4">
-                    {item.step}
+              <div key={index} className="group">
+                <div className="bg-card border border-border rounded-2xl p-8 text-center hover:border-primary hover:shadow-xl hover:-translate-y-2 transition-all">
+                  <div className="text-6xl mb-6">{item.icon}</div>
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center text-primary text-2xl font-bold mx-auto mb-6">
+                    {index + 1}
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-2">{item.title}</h3>
-                  <p className="text-muted-foreground">{item.desc}</p>
+                  <h3 className="text-2xl font-bold text-foreground mb-4">
+                    {item.title}
+                  </h3>
+                  <p className="text-muted-foreground text-lg">{item.desc}</p>
                 </div>
-              </ScrollAnimation>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Values Section */}
-      <section className="py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <ScrollAnimation>
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-foreground mb-6">Our Core Values</h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                The principles that guide our educational approach and interactions
-              </p>
+      {/* VISION & MISSION */}
+      <section className="py-24 px-4 bg-background">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4">
+              Our Purpose
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+              Vision & Mission
+            </h2>
+          </div>
+
+          <div className="flex justify-center mb-8">
+            <div className="bg-muted rounded-2xl p-2 flex gap-2 border border-border">
+              {["vision", "mission"].map((tab) => (
+                <button
+                  key={tab}
+                  onClick={() => setActiveTab(tab)}
+                  className={`px-8 py-4 rounded-xl font-semibold transition-all ${
+                    activeTab === tab
+                      ? "bg-primary text-primary-foreground shadow-lg"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {tab === "vision" ? "Our Vision" : "Our Mission"}
+                </button>
+              ))}
             </div>
-          </ScrollAnimation>
+          </div>
+
+          <div className="bg-card border border-border rounded-3xl shadow-2xl p-12 hover:border-primary transition-all">
+            {activeTab === "vision" ? (
+              <div>
+                <div className="text-7xl mb-6 text-center">🎯</div>
+                <p className="text-muted-foreground text-xl md:text-2xl leading-relaxed text-center">
+                  To become a leading institution that transforms ambition into
+                  achievement through education.
+                </p>
+              </div>
+            ) : (
+              <div>
+                <div className="text-7xl mb-6 text-center">🚀</div>
+                <p className="text-muted-foreground text-xl md:text-2xl leading-relaxed text-center">
+                  To deliver practical, personalized learning experiences that
+                  empower career success.
+                </p>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* CORE VALUES */}
+      <section className="py-24 px-4 bg-muted">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4">
+              What Drives Us
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+              Our Core Values
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Principles that guide everything we do
+            </p>
+          </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
-              <ScrollAnimation key={index} animation="fade-up" delay={index * 100}>
-                <div className="bg-card rounded-xl shadow-lg p-8 text-center hover:shadow-xl transition-shadow duration-300">
-                  <h3 className="text-xl font-bold text-foreground mb-4">{value.title}</h3>
-                  <p className="text-muted-foreground">{value.description}</p>
+              <div key={index} className="group">
+                <div className="bg-card border border-border rounded-2xl p-8 hover:border-primary hover:shadow-2xl hover:-translate-y-2 transition-all h-full">
+                  <div className="text-6xl mb-6">{value.icon}</div>
+                  <h3 className="text-2xl font-bold text-foreground mb-4">{value.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{value.description}</p>
                 </div>
-              </ScrollAnimation>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <Footer />
+      {/* CTA SECTION */}
+      <section className="py-24 px-4 bg-background">
+        <div className="max-w-5xl mx-auto">
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent blur-3xl opacity-20" />
+            <div className="relative bg-card border-2 border-primary/20 rounded-3xl p-12 md:p-16 text-center hover:border-primary/50 transition-all">
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+                Ready to Transform Your Future?
+              </h2>
+              <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
+                Join thousands of successful professionals who chose Elite Learning Academy for their career transformation.
+              </p>
+              <button className="px-10 py-5 bg-primary text-primary-foreground rounded-xl font-bold text-lg hover:bg-primary/90 hover:scale-105 transition-all shadow-xl">
+                Start Your Journey Today
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <style>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes fade-in {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        .animate-fade-in {
+          animation: fade-in 1s ease-out forwards;
+          opacity: 0;
+        }
+      `}</style>
+            <Footer />
+
     </div>
   );
 };

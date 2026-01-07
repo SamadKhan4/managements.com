@@ -1,129 +1,132 @@
 /* eslint-disable no-useless-escape */
-import { useState, useEffect } from 'react';
-import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState, useEffect } from "react";
+import { ArrowRight } from "lucide-react";
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  
+
   const slides = [
     {
-      image: 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
-      title: 'LEARNING EXCELLENCE',
-      subtitle: 'Transform Your Knowledge',
-      description: 'Elite Learning Academy provides comprehensive educational programs, connecting passionate learners with expert instructors to foster growth and success.',
-      buttonText: 'ENROLL NOW'
+      image:
+        "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1920&q=80",
+      title: "LEARNING EXCELLENCE",
+      subtitle: "Transform Your Knowledge",
+      description:
+        "Elite Learning Academy provides comprehensive educational programs, connecting passionate learners with expert instructors to foster growth and success.",
+      buttonText: "ENROLL NOW",
     },
     {
-      image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
-      title: 'CAREER ADVANCEMENT',
-      subtitle: 'Master New Skills',
-      description: 'Our courses are designed to help you advance your career with practical, industry-relevant knowledge and skills.',
-      buttonText: 'START LEARNING'
-    }
+      image:
+        "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1920&q=80",
+      title: "CAREER ADVANCEMENT",
+      subtitle: "Master New Skills",
+      description:
+        "Our courses are designed to help you advance your career with practical, industry-relevant knowledge and skills.",
+      buttonText: "START LEARNING",
+    },
+    {
+      image:
+        "https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=1920&q=80",
+      title: "INDUSTRY READY",
+      subtitle: "Learn From Experts",
+      description:
+        "Gain real-world exposure with curriculum designed by industry professionals and hands-on learning modules.",
+      buttonText: "VIEW COURSES",
+    },
+    {
+      image:
+        "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=1920&q=80",
+      title: "SUCCESS JOURNEY",
+      subtitle: "Build Your Future",
+      description:
+        "Join thousands of successful learners who transformed their careers with Elite Managements.",
+      buttonText: "JOIN TODAY",
+    },
   ];
 
+  /* AUTO SLIDE */
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
+    }, 5500);
+
     return () => clearInterval(timer);
   }, [slides.length]);
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
-
-  const getTextDelay = (index) => {
-    return index * 0.1;
-  };
+  const getTextDelay = (index) => `${index * 0.12}s`;
 
   return (
     <div className="relative h-screen overflow-hidden">
-      {/* Slides */}
       {slides.map((slide, index) => (
         <div
           key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ${
-            index === currentSlide ? 'opacity-100' : 'opacity-0'
+          className={`absolute inset-0 transition-opacity duration-[1200ms] ease-in-out ${
+            index === currentSlide
+              ? "opacity-100 z-10"
+              : "opacity-0 z-0"
           }`}
         >
-          <div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          {/* Background */}
+          <div
+            className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${slide.image})` }}
           >
-            <div className="absolute inset-0 bg-black/60"></div>
+            <div className="absolute inset-0 bg-black/60" />
           </div>
-          
+
           {/* Content */}
-          <div className="relative z-10 h-full flex items-center justify-center text-center text-white px-4 max-w-4xl mx-auto">
-            <div className="w-full">
-              <h1 
+          <div className="relative z-20 h-full flex items-center justify-center text-center text-white px-4">
+            <div className="max-w-4xl w-full">
+              <h1
+                key={`title-${currentSlide}`}
                 className="text-5xl md:text-7xl font-bold mb-6 slide-in-left"
-                style={{ animationDelay: `${getTextDelay(0)}s` }}
+                style={{ animationDelay: getTextDelay(0) }}
               >
                 {slide.title}
               </h1>
-              <h2 
-                className="text-2xl md:text-4xl font-semibold mb-6 slide-in-left" 
-                style={{ animationDelay: `${getTextDelay(1)}s` }}
+
+              <h2
+                key={`subtitle-${currentSlide}`}
+                className="text-2xl md:text-4xl font-semibold mb-6 slide-in-left"
+                style={{ animationDelay: getTextDelay(1) }}
               >
                 {slide.subtitle}
               </h2>
-              <p 
-                className="text-lg md:text-xl mb-8 max-w-2xl mx-auto slide-in-left" 
-                style={{ animationDelay: `${getTextDelay(2)}s` }}
+
+              <p
+                key={`desc-${currentSlide}`}
+                className="text-lg md:text-xl mb-8 max-w-2xl mx-auto slide-in-left"
+                style={{ animationDelay: getTextDelay(2) }}
               >
                 {slide.description}
               </p>
-              <button 
-                className="bg-accent hover:bg-accent/90 text-white font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 slide-in-left flex items-center mx-auto hover-lift"
-                style={{ animationDelay: `${getTextDelay(3)}s` }}
+
+              <button
+                key={`btn-${currentSlide}`}
+                className="bg-accent hover:bg-accent/90 text-white font-bold py-4 px-8 rounded-full text-lg slide-in-left flex items-center mx-auto hover-lift"
+                style={{ animationDelay: getTextDelay(3) }}
               >
-                {slide.buttonText} <ArrowRight className="ml-2" size={20} />
+                {slide.buttonText}
+                <ArrowRight className="ml-2" size={20} />
               </button>
-              
-             
             </div>
           </div>
         </div>
       ))}
-      
-      {/* Navigation arrows */}
-      <button 
-        onClick={prevSlide}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-white bg-opacity-20 backdrop-blur-sm text-white p-3 rounded-full hover:bg-opacity-30 transition-all duration-300 hover-lift"
-      >
-        <ChevronLeft size={24} />
-      </button>
-      <button 
-        onClick={nextSlide}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-white bg-opacity-20 backdrop-blur-sm text-white p-3 rounded-full hover:bg-opacity-30 transition-all duration-300 hover-lift"
-      >
-        <ChevronRight size={24} />
-      </button>
-      
-      {/* Slide indicators */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex space-x-2">
+
+      {/* DOT INDICATORS */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex gap-2">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentSlide ? 'bg-white' : 'bg-white bg-opacity-50'
-            } hover-lift`}
+            className={`h-2.5 w-2.5 rounded-full transition-all duration-300 ${
+              index === currentSlide
+                ? "bg-white scale-125"
+                : "bg-white/50"
+            }`}
           />
         ))}
-      </div>
-      
-      {/* Scroll indicator */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white opacity-70 animate-bounce z-10">
-        <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
-        </div>
       </div>
     </div>
   );

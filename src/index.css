@@ -4,16 +4,17 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ======================================================
+   ROOT VARIABLES – CORPORATE BLUE SYSTEM
+====================================================== */
 :root {
-  /* Corporate Blue Palette */
-
-  --primary: 217 91% 60%;      /* Bright Blue #3B82F6 */
+  --primary: 217 91% 60%;
   --primary-foreground: 0 0% 100%;
 
-  --secondary: 215 25% 27%;    /* Dark Slate Blue #334155 */
+  --secondary: 215 25% 27%;
   --secondary-foreground: 210 40% 98%;
 
-  --accent: 199 89% 48%;       /* Light Blue/Cyan Accent #0EA5E9 */
+  --accent: 199 89% 48%;
   --accent-foreground: 210 40% 98%;
 
   --destructive: 0 84.2% 60.2%;
@@ -22,228 +23,133 @@
   --muted: 210 40% 96.1%;
   --muted-foreground: 215.4 16.3% 46.9%;
 
-  --popover: 0 0% 100%;
-  --popover-foreground: 222.2 84% 4.9%;
-
-  --card: 0 0% 100%;
-  --card-foreground: 222.2 84% 4.9%;
-
   --background: 0 0% 100%;
   --foreground: 222.2 84% 4.9%;
-  
+
   --border: 214.3 31.8% 91.4%;
   --input: 214.3 31.8% 91.4%;
   --ring: 221.2 83.2% 53.3%;
-  
+
   --radius: 0.75rem;
 
   --font-display: 'Outfit', sans-serif;
   --font-body: 'Plus Jakarta Sans', sans-serif;
 }
 
+/* ======================================================
+   DARK MODE (OPTIONAL FALLBACK)
+====================================================== */
 .dark {
-  /* Not heavily focused on dark mode for corporate site, but good to have fallback */
   --background: 222.2 84% 4.9%;
   --foreground: 210 40% 98%;
-  
   --card: 222.2 84% 4.9%;
   --card-foreground: 210 40% 98%;
- 
-  --popover: 222.2 84% 4.9%;
-  --popover-foreground: 210 40% 98%;
- 
   --primary: 217.2 91.2% 59.8%;
-  --primary-foreground: 222.2 47.4% 11.2%;
- 
   --secondary: 217.2 32.6% 17.5%;
-  --secondary-foreground: 210 40% 98%;
- 
   --muted: 217.2 32.6% 17.5%;
-  --muted-foreground: 215 20.2% 65.1%;
- 
   --accent: 217.2 32.6% 17.5%;
-  --accent-foreground: 210 40% 98%;
- 
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 210 40% 98%;
- 
-  --border: 217.2 32.6% 17.5%;
-  --input: 217.2 32.6% 17.5%;
-  --ring: 224.3 76.3% 48%;
+}
+
+/* ======================================================
+   BASE RESET
+====================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
+  margin: 0;
+  padding: 0;
   font-family: var(--font-body);
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
 }
 
-/* Custom Utilities */
-.text-gradient {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-500;
+/* ======================================================
+   LAYOUT UTILITIES
+====================================================== */
+.container-custom {
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
 }
 
 .section-padding {
-  @apply py-16 md:py-24 lg:py-32;
+  padding-block: 4rem;
 }
 
-.container-custom {
-  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  overflow-x: hidden;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Custom animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+@media (min-width: 768px) {
+  .section-padding {
+    padding-block: 6rem;
   }
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-block: 8rem;
   }
 }
 
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
+/* ======================================================
+   TEXT & BUTTON UTILITIES
+====================================================== */
+.text-gradient {
+  background: linear-gradient(to right, #2563eb, #06b6d4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+button,
+a {
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+/* ======================================================
+   HOVER EFFECTS
+====================================================== */
+.hover-lift {
+  will-change: transform;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.12);
 }
 
-@keyframes slideInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.fade-in-up {
-  animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-}
-
-.fade-in {
-  animation: fadeIn 0.8s ease-out forwards;
-}
-
-.slide-in-left {
-  animation: slideInLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-}
-
-.slide-in-right {
-  animation: slideInRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-}
-
-.slide-in-up {
-  animation: slideInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-}
-
-.slide-in-down {
-  animation: slideInDown 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-}
-
-/* Smooth scroll */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #1e3a8a;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #312e81;
-}
-
-/* SCROLL ANIMATIONS SYSTEM */
+/* ======================================================
+   SCROLL ANIMATION SYSTEM (OPTIMIZED)
+====================================================== */
 .scroll-animate {
   opacity: 0;
   transform: translate3d(0, 40px, 0);
   transition-property: opacity, transform;
   transition-duration: 0.6s;
-  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  will-change: transform, opacity;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
 }
 
-/* SHOW */
 .scroll-animate.show {
   opacity: 1;
   transform: translate3d(0, 0, 0);
 }
 
-/* ANIMATION TYPES */
+/* Animation Variants */
 .scroll-animate[data-animation="fade-up"] {
   transform: translate3d(0, 40px, 0);
 }
@@ -253,121 +159,82 @@ html {
 }
 
 .scroll-animate[data-animation="fade-left"] {
-  transform: translate3d(40px, 0, 0);
-}
-
-.scroll-animate[data-animation="fade-right"] {
   transform: translate3d(-40px, 0, 0);
 }
 
-.scroll-animate.show[data-animation] {
-  transform: translate3d(0, 0, 0);
+.scroll-animate[data-animation="fade-right"] {
+  transform: translate3d(40px, 0, 0);
 }
 
-/* DIRECTION AWARE EXIT */
-.scroll-animate:not(.show)[data-direction="up"] {
-  transform: translate3d(0, -40px, 0);
+.scroll-animate[data-animation="zoom-in"] {
+  transform: scale(0.92);
 }
 
-.scroll-animate:not(.show)[data-direction="down"] {
-  transform: translate3d(0, 40px, 0);
+/* ======================================================
+   KEYFRAME ANIMATIONS (HERO / TEXT)
+====================================================== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-/* Enhanced transitions */
-* {
-  transition: all 0.3s ease;
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* Enhanced button transitions */
-button, a {
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
-/* Smooth hover effects */
-.hover-lift {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
-.hover-lift:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
 }
 
-/* Smooth scrolling for all elements */
-* {
-  scroll-behavior: smooth;
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
 }
 
-/* Enhanced scroll-based animations */
-.scroll-animate {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+.slide-in-left {
+  animation: slideInLeft 0.8s ease-out forwards;
 }
 
-.scroll-animate.animate-on-scroll {
-  opacity: 1;
-  transform: translateY(0);
+.slide-in-right {
+  animation: slideInRight 0.8s ease-out forwards;
 }
 
-/* Parallax effect for enhanced motion */
-.parallax-element {
-  transform: translateZ(0);
-  will-change: transform;
-}
-
-/* Enhanced scroll performance */
-body {
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
-}
-
-/* Smooth opacity transitions */
-.opacity-transition {
-  transition: opacity 0.4s ease-in-out;
-}
-
-/* Quick fade in/out transitions */
-.quick-fade {
-  animation: fadeIn 0.5s ease-out forwards;
-}
-
-.quick-fade-out {
-  animation: fadeOut 0.3s ease-in forwards;
-}
-
-/* Enhanced motion for scroll direction */
-.scroll-up {
-  animation: slideInUp 0.6s ease-out forwards;
-}
-
-.scroll-down {
-  animation: slideInDown 0.6s ease-out forwards;
-}
-
-/* Custom scrollbar with smooth interaction */
+/* ======================================================
+   SCROLLBAR (CLEAN & MODERN)
+====================================================== */
 ::-webkit-scrollbar {
-  width: 10px;
-  transition: width 0.3s ease;
+  width: 8px;
 }
 
-::-webkit-scrollbar:hover {
-  width: 12px;
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
 }
 
-/* Smooth section transitions */
-section {
-  transition: all 0.5s ease;
+::-webkit-scrollbar-thumb {
+  background: #2563eb;
+  border-radius: 6px;
 }
 
-/* Enhanced focus states for better motion */
-*:focus {
-  transition: all 0.2s ease;
+::-webkit-scrollbar-thumb:hover {
+  background: #1e40af;
 }
 
-/* Smooth resize transitions */
-@media (prefers-reduced-motion: no-preference) {
+/* ======================================================
+   ACCESSIBILITY
+====================================================== */
+@media (prefers-reduced-motion: reduce) {
   * {
-    animation-duration: 15s !important;
+    animation: none !important;
+    transition: none !important;
   }
 }
