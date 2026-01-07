@@ -23,7 +23,7 @@ const Navbar = () => {
             {/* Logo */}
             <Link to="/" className="flex-shrink-0 flex items-center hover:opacity-90 transition-opacity duration-300">
               <img 
-                src="/src/assets/images/logo/logo-em.png" 
+                src="/images/logo/logo-em.png" 
                 alt="Elite Managements Logo" 
                 className="h-10 w-auto mr-3 transition-transform duration-300 hover:scale-105"
               />

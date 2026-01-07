@@ -41,12 +41,12 @@ const About = () => {
           <ScrollAnimation animationClass="slide-in-right">
             <div className="grid grid-cols-2 gap-4">
               <img 
-                src="/src/assets/images/resource/about-2.jpg" 
+                src="/images/resource/about-2.jpg" 
                 alt="Learning environment" 
                 className="rounded-lg shadow-lg object-cover h-64 hover-lift transition-all duration-300"
               />
               <img 
-                src="/src/assets/images/resource/user1.webp" 
+                src="/images/resource/user1.webp" 
                 alt="Students learning" 
                 className="rounded-lg shadow-lg mt-8 object-cover h-64 hover-lift transition-all duration-300"
               />

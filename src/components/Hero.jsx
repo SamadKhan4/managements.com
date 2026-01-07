@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 import { useState, useEffect } from 'react';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -6,14 +7,14 @@ const Hero = () => {
   
   const slides = [
     {
-      image: '/src/assets/images/banner/banner-talenthub.webp',
+      image: '/images/banner/banner-talenthub.webp',
       title: 'LEARNING EXCELLENCE',
       subtitle: 'Transform Your Knowledge',
       description: 'Elite Learning Academy provides comprehensive educational programs, connecting passionate learners with expert instructors to foster growth and success.',
       buttonText: 'ENROLL NOW'
     },
     {
-      image: '/src/assets/images/banner/slider2.webp',
+      image: '/images/banner/slider2.webp',
       title: 'CAREER ADVANCEMENT',
       subtitle: 'Master New Skills',
       description: 'Our courses are designed to help you advance your career with practical, industry-relevant knowledge and skills.',

@@ -7,19 +7,19 @@ const Services = () => {
       icon: '📚',
       title: 'Management Courses',
       description: 'Comprehensive programs covering strategic planning and business management.',
-      image: '/src/assets/images/resource/about-2.jpg'
+      image: '/images/resource/about-2.jpg'
     },
     {
       icon: '🎯',
       title: 'Leadership Training',
       description: 'Develop essential leadership skills for modern business environments.',
-      image: '/src/assets/images/resource/user1.webp'
+      image: '/images/resource/user1.webp'
     },
     {
       icon: '📈',
       title: 'Digital Marketing',
       description: 'Complete guide to modern digital marketing strategies and tools.',
-      image: '/src/assets/images/resource/video-bg-1.jpg'
+      image: '/images/resource/video-bg-1.jpg'
     }
   ];
 
