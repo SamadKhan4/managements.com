@@ -79,7 +79,7 @@ const About = () => {
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* Background with Parallax */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/95 to-primary/90" />
+          <div className="absolute inset-0 bg-black/80" />
           <img
             src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1920&q=80"
             alt="Elite Learning Academy"
@@ -87,9 +87,7 @@ const About = () => {
             style={{ transform: `translateY(${scrollY * 0.3}px)` }}
           />
           
-          {/* Animated gradient orbs */}
-          <div className="absolute top-20 right-20 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-20 left-20 w-96 h-96 bg-primary/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+         
         </div>
 
         
@@ -102,13 +100,10 @@ const About = () => {
 
           <h1 className="text-6xl md:text-8xl font-bold text-white leading-tight mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }}>
             Shaping Futures Through <br />
-            <span className="text-black/60">Quality Education</span>
+            <span className="text-gray-900">Quality Education</span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-10 animate-fade-in" style={{ animationDelay: '0.4s' }}>
-            Since 2011, Elite Learning Academy has empowered students and professionals
-            with industry-focused education, expert mentorship, and career-driven learning paths.
-          </p>
+        
 
           <div className="flex gap-4 justify-center animate-fade-in" style={{ animationDelay: '0.6s' }}>
             <button className="px-8 py-4 bg-white text-primary rounded-lg font-semibold hover:bg-white/90 hover:scale-105 transition-all shadow-xl">
@@ -122,7 +117,6 @@ const About = () => {
 
        
         {/* Bottom gradient fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-muted to-transparent" />
       </section>
 
       {/* ================= STATS SECTION ================= */}
