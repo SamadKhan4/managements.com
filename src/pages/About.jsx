@@ -18,7 +18,7 @@ const About = () => {
       <ScrollAnimation>
         <div className="relative h-96 bg-gradient-to-r from-indigo-800 to-emerald-600 flex items-center justify-center">
           <div className="text-center text-white">
-            <h1 className="text-5xl font-bold mb-4">About Us</h1>
+            <h1 className="text-5xl font-bold mb-4">About elite Us</h1>
             <p className="text-xl">Elite Learning Academy - Your Educational Partner</p>
           </div>
         </div>
