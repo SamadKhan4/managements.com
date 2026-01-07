@@ -56,7 +56,7 @@ const Placements = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Banner */}
-      <div className="relative h-96 bg-gradient-to-r from-indigo-800 to-emerald-600 flex items-center justify-center">
+      <div className="relative h-96 bg-primary flex items-center justify-center">
         <div className="text-center text-white">
           <h1 className="text-5xl font-bold mb-4">Success Stories</h1>
           <p className="text-xl">Student Achievements & Career Growth</p>
@@ -76,7 +76,7 @@ const Placements = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {courseStats.map((stat, index) => (
               <div key={index} className="bg-white rounded-xl shadow-lg p-8 text-center hover:shadow-xl transition-shadow duration-300">
-                <div className="text-4xl font-bold text-indigo-800 mb-2">{stat.value}</div>
+                <div className="text-4xl font-bold text-primary mb-2">{stat.value}</div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{stat.title}</h3>
                 <p className="text-gray-600">{stat.description}</p>
               </div>
@@ -160,7 +160,7 @@ const Placements = () => {
               { step: 4, title: 'Certification', desc: 'Complete course and earn certificate' }
             ].map((step, index) => (
               <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-indigo-800 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-6">
+                <div className="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-6">
                   {step.step}
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{step.title}</h3>

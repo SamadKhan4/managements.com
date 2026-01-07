@@ -79,7 +79,7 @@ const Blogs = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Banner */}
-      <div className="relative h-96 bg-gradient-to-r from-indigo-800 to-emerald-600 flex items-center justify-center">
+      <div className="relative h-96 bg-primary flex items-center justify-center">
         <div className="text-center text-white">
           <h1 className="text-5xl font-bold mb-4">Insights & Articles</h1>
           <p className="text-xl">Educational Knowledge & Industry Insights</p>
@@ -206,7 +206,7 @@ const Blogs = () => {
               </div>
 
               {/* Newsletter */}
-              <div className="bg-gradient-to-r from-indigo-800 to-emerald-600 rounded-xl shadow-lg p-6 mt-8 text-white">
+              <div className="bg-primary to-emerald-600 rounded-xl shadow-lg p-6 mt-8 text-white">
                 <h3 className="text-lg font-bold mb-2">Subscribe to Our Newsletter</h3>
                 <p className="text-sm mb-4 opacity-90">
                   Get the latest educational insights and course updates delivered to your inbox.
