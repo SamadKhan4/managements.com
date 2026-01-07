@@ -26,20 +26,20 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-muted">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             Student Success Stories
           </h2>
-          <p className="text-xl text-gray-600 mb-8">
+          <p className="text-xl text-muted-foreground mb-8">
             What Our Students Say
           </p>
           <div className="flex justify-center items-center space-x-4">
             {[...Array(5)].map((_, i) => (
-              <span key={i} className="text-2xl text-yellow-400">★</span>
+              <span key={i} className="text-2xl text-foreground">★</span>
             ))}
-            <span className="ml-4 text-gray-600">Based on 5000+ reviews</span>
+            <span className="ml-4 text-muted-foreground">Based on 5000+ reviews</span>
           </div>
         </div>
 
@@ -50,7 +50,7 @@ const Testimonials = () => {
         </div>
 
         <div className="text-center">
-          <button className="bg-indigo-800 hover:bg-indigo-900 text-white px-8 py-3 rounded-lg font-medium transition-colors duration-300">
+          <button className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-lg font-medium transition-colors duration-300">
             VIEW MORE
           </button>
         </div>

@@ -115,29 +115,29 @@ const Courses = () => {
 
   const renderStars = (rating) => {
     return [...Array(5)].map((_, i) => (
-      <span key={i} className={i < rating ? 'text-yellow-400' : 'text-gray-300'}>★</span>
+      <span key={i} className={i < rating ? 'text-foreground' : 'text-muted-foreground'}>★</span>
     ));
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-muted">
       {/* Hero Banner */}
       <ScrollAnimation>
-        <div className="relative h-96 bg-gradient-to-r from-indigo-800 to-emerald-600 flex items-center justify-center">
+        <div className="relative h-96 bg-primary flex items-center justify-center">
           <div className="text-center text-white">
-            <h1 className="text-5xl font-bold mb-4">Our Courses</h1>
-            <p className="text-xl">Expand Your Knowledge with Expert-Led Courses</p>
+            <h1 className="text-5xl font-bold mb-4 text-primary-foreground">Our Courses</h1>
+            <p className="text-xl text-primary-foreground">Expand Your Knowledge with Expert-Led Courses</p>
           </div>
         </div>
       </ScrollAnimation>
 
       {/* Course Categories */}
-      <section className="py-12 px-4 bg-white">
+      <section className="py-12 px-4 bg-background">
         <div className="max-w-7xl mx-auto">
           <ScrollAnimation>
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">Explore Our Course Categories</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <h2 className="text-4xl font-bold text-foreground mb-6">Explore Our Course Categories</h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
                 Choose from a wide range of expertly designed courses to advance your career
               </p>
             </div>
@@ -151,8 +151,8 @@ const Courses = () => {
                   onClick={() => setSelectedCategory(category.id)}
                   className={`px-6 py-3 rounded-full font-medium transition-colors duration-300 ${
                     selectedCategory === category.id
-                      ? 'bg-indigo-800 text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      ? 'bg-primary text-primary-foreground'
+                      : 'bg-muted text-muted-foreground hover:bg-muted/50'
                   }`}
                 >
                   {category.name}
@@ -165,7 +165,7 @@ const Courses = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredCourses.map((course, index) => (
               <ScrollAnimation key={course.id} animation="fade-up" delay={index * 100}>
-                <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <div className="bg-card rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                   <img 
                     src={course.image} 
                     alt={course.title} 
@@ -173,26 +173,26 @@ const Courses = () => {
                   />
                   <div className="p-6">
                     <div className="flex justify-between items-start mb-4">
-                      <span className="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium">
+                      <span className="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-medium">
                         {course.level}
                       </span>
                       <div className="text-yellow-400 text-sm">
                         {renderStars(Math.floor(course.rating))}
-                        <span className="text-gray-600 ml-1">({course.rating})</span>
+                        <span className="text-muted-foreground ml-1">({course.rating})</span>
                       </div>
                     </div>
                     
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{course.title}</h3>
-                    <p className="text-gray-600 mb-3">{course.description}</p>
+                    <h3 className="text-xl font-bold text-foreground mb-2">{course.title}</h3>
+                    <p className="text-muted-foreground mb-3">{course.description}</p>
                     
-                    <div className="flex items-center text-sm text-gray-500 mb-4">
+                    <div className="flex items-center text-sm text-muted-foreground mb-4">
                       <span className="font-medium">Instructor:</span> {course.instructor}
                     </div>
                     
                     <div className="flex justify-between items-center mb-4">
                       <div className="flex space-x-2">
                         {course.tags.slice(0, 2).map((tag, index) => (
-                          <span key={index} className="bg-emerald-100 text-emerald-800 px-2 py-1 rounded text-xs">
+                          <span key={index} className="bg-accent/20 text-accent px-2 py-1 rounded text-xs">
                             {tag}
                           </span>
                         ))}
@@ -200,19 +200,19 @@ const Courses = () => {
                     </div>
                     
                     <div className="flex justify-between items-center mb-4">
-                      <span className="text-gray-600">{course.duration}</span>
-                      <span className="text-gray-600">{course.students} students</span>
+                      <span className="text-muted-foreground">{course.duration}</span>
+                      <span className="text-muted-foreground">{course.students} students</span>
                     </div>
                     
                     <div className="flex justify-between items-center">
-                      <span className="text-2xl font-bold text-indigo-800">${course.price}</span>
+                      <span className="text-2xl font-bold text-primary">${course.price}</span>
                       <button 
                         onClick={() => handleEnroll(course.id)}
                         disabled={enrolledCourses.includes(course.id)}
                         className={`px-6 py-2 rounded-lg font-medium transition-colors duration-300 ${
                           enrolledCourses.includes(course.id)
                             ? 'bg-green-600 text-white cursor-not-allowed'
-                            : 'bg-indigo-800 hover:bg-indigo-900 text-white'
+                            : 'bg-primary hover:bg-primary/90 text-primary-foreground'
                         }`}
                       >
                         {enrolledCourses.includes(course.id) ? 'Enrolled' : 'Enroll Now'}
@@ -227,12 +227,12 @@ const Courses = () => {
       </section>
 
       {/* Featured Courses Section */}
-      <section className="py-20 px-4 bg-gray-100">
+      <section className="py-20 px-4 bg-muted">
         <div className="max-w-7xl mx-auto">
           <ScrollAnimation>
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">Featured Courses</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <h2 className="text-4xl font-bold text-foreground mb-6">Featured Courses</h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
                 Our most popular and highly-rated courses chosen by thousands of students
               </p>
             </div>
@@ -241,20 +241,20 @@ const Courses = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {courses.slice(0, 3).map((course, index) => (
               <ScrollAnimation key={course.id} animation="fade-up" delay={index * 150}>
-                <div key={course.id} className={`bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300 ${index === 1 ? 'transform -translate-y-4' : ''}`}>
+                <div key={course.id} className={`bg-card rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300 ${index === 1 ? 'transform -translate-y-4' : ''}`}>
                   <div className="text-center">
                     <img 
                       src={course.image} 
                       alt={course.title} 
                       className="w-full h-40 object-cover rounded-lg mb-6"
                     />
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">{course.title}</h3>
-                    <p className="text-gray-600 mb-4">{course.description}</p>
+                    <h3 className="text-xl font-bold text-foreground mb-3">{course.title}</h3>
+                    <p className="text-muted-foreground mb-4">{course.description}</p>
                     <div className="flex justify-center items-center mb-4">
-                      <div className="text-yellow-400 mr-2">
+                      <div className="text-foreground mr-2">
                         {renderStars(Math.floor(course.rating))}
                       </div>
-                      <span className="text-gray-600">({course.rating})</span>
+                      <span className="text-muted-foreground">({course.rating})</span>
                     </div>
                     <button 
                       onClick={() => handleEnroll(course.id)}
@@ -262,7 +262,7 @@ const Courses = () => {
                       className={`w-full py-3 rounded-lg font-medium transition-colors duration-300 ${
                         enrolledCourses.includes(course.id)
                           ? 'bg-green-600 text-white cursor-not-allowed'
-                          : 'bg-indigo-800 hover:bg-indigo-900 text-white'
+                          : 'bg-primary hover:bg-primary/90 text-primary-foreground'
                       }`}
                     >
                       {enrolledCourses.includes(course.id) ? 'Enrolled' : 'Start Learning'}
@@ -276,12 +276,12 @@ const Courses = () => {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4 bg-background">
         <div className="max-w-7xl mx-auto">
           <ScrollAnimation>
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">Why Choose Our Courses?</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <h2 className="text-4xl font-bold text-foreground mb-6">Why Choose Our Courses?</h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
                 We provide the highest quality education with industry experts and practical learning
               </p>
             </div>
@@ -295,9 +295,9 @@ const Courses = () => {
             ].map((feature, index) => (
               <ScrollAnimation key={index} animation="fade-up" delay={index * 100}>
                 <div key={index} className="text-center">
-                  <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-800 text-2xl font-bold mx-auto mb-6">✓</div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
-                  <p className="text-gray-600">{feature.desc}</p>
+                  <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center text-primary text-2xl font-bold mx-auto mb-6">✓</div>
+                  <h3 className="text-xl font-bold text-foreground mb-3">{feature.title}</h3>
+                  <p className="text-muted-foreground">{feature.desc}</p>
                 </div>
               </ScrollAnimation>
             ))}

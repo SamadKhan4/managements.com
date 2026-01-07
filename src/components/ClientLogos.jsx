@@ -26,13 +26,13 @@ const ClientLogos = () => {
   const duplicatedClients = [...clients, ...clients];
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-background">
       <div className="max-w-8xl mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Esteemed Learning Partners
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto">
             We're proud to partner with industry leaders who trust our expertise in education
           </p>
         </div>
@@ -47,7 +47,7 @@ const ClientLogos = () => {
                 <img 
                   src={client.logo} 
                   alt={client.name} 
-                  className="h-16 object-contain filter grayscale hover:grayscale-0 transition-all duration-400 max-h-18"
+                  className="min-h-21 object-contain filter grayscale hover:grayscale-0 transition-all duration-800 max-h-28 w-auto"
                 />
               </div>
             ))}

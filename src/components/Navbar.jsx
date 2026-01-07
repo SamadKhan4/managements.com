@@ -16,7 +16,7 @@ const Navbar = () => {
   }, [location.pathname]);
 
   return (
-    <nav className="fixed top-0 w-full bg-gradient-to-r from-indigo-800 to-indigo-900 text-white z-50 shadow-lg">
+    <nav className="fixed top-0 w-full bg-primary text-white z-50 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
@@ -33,14 +33,14 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link to="/" onClick={handleLinkClick} className="hover:text-emerald-300 transition-colors duration-200">HOME</Link>
+            <Link to="/" onClick={handleLinkClick} className="hover:text-accent-foreground transition-colors duration-200">HOME</Link>
             
-            <Link to="/about" onClick={handleLinkClick} className="hover:text-emerald-300 transition-colors duration-200">ABOUT US</Link>
+            <Link to="/about" onClick={handleLinkClick} className="hover:text-accent-foreground transition-colors duration-200">ABOUT US</Link>
             
-            <Link to="/courses" onClick={handleLinkClick} className="hover:text-emerald-300 transition-colors duration-200">COURSES</Link>
-            <Link to="/blogs" onClick={handleLinkClick} className="hover:text-emerald-300 transition-colors duration-200">BLOGS</Link>
-            <Link to="/placements" onClick={handleLinkClick} className="hover:text-emerald-300 transition-colors duration-200">PLACEMENTS</Link>
-            <Link to="/contact" onClick={handleLinkClick} className="hover:text-emerald-300 transition-colors duration-200">GET IN TOUCH</Link>
+            <Link to="/courses" onClick={handleLinkClick} className="hover:text-accent-foreground transition-colors duration-200">COURSES</Link>
+            <Link to="/blogs" onClick={handleLinkClick} className="hover:text-accent-foreground transition-colors duration-200">BLOGS</Link>
+            <Link to="/placements" onClick={handleLinkClick} className="hover:text-accent-foreground transition-colors duration-200">PLACEMENTS</Link>
+            <Link to="/contact" onClick={handleLinkClick} className="hover:text-accent-foreground transition-colors duration-200">GET IN TOUCH</Link>
           </div>
 
           {/* Mobile menu button */}
@@ -57,18 +57,18 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-indigo-900">
+        <div className="md:hidden bg-secondary">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <Link 
               to="/" 
-              className="block px-3 py-2 rounded-md text-base font-medium hover:text-emerald-300 transition-colors duration-200"
+              className="block px-3 py-2 rounded-md text-base font-medium hover:text-accent-foreground transition-colors duration-200"
               onClick={handleLinkClick}
             >
               HOME
             </Link>
             <Link 
               to="/about" 
-              className="block px-3 py-2 rounded-md text-base font-medium hover:text-emerald-300 transition-colors duration-200"
+              className="block px-3 py-2 rounded-md text-base font-medium hover:text-accent-foreground transition-colors duration-200"
               onClick={handleLinkClick}
             >
               ABOUT US
@@ -76,14 +76,14 @@ const Navbar = () => {
             
             <Link 
               to="/courses" 
-              className="block px-3 py-2 rounded-md text-base font-medium hover:text-emerald-300 transition-colors duration-200"
+              className="block px-3 py-2 rounded-md text-base font-medium hover:text-accent-foreground transition-colors duration-200"
               onClick={handleLinkClick}
             >
               COURSES
             </Link>
             <Link 
               to="/contact" 
-              className="block px-3 py-2 rounded-md text-base font-medium hover:text-emerald-300 transition-colors duration-200"
+              className="block px-3 py-2 rounded-md text-base font-medium hover:text-accent-foreground transition-colors duration-200"
               onClick={handleLinkClick}
             >
               GET IN TOUCH
