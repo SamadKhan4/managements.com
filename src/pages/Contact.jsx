@@ -260,7 +260,7 @@ const Contact = () => {
                       <div className="text-xs text-muted-foreground uppercase tracking-wide">Graduates</div>
                     </div>
                     <div>
-                      <div className="text-2xl font-bold text-primary mb-1">₹25LPA</div>
+                      <div className="text-2xl font-bold text-primary mb-1">Rs 25LPA</div>
                       <div className="text-xs text-muted-foreground uppercase tracking-wide">Avg Package</div>
                     </div>
                   </div>
