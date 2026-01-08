@@ -15,7 +15,7 @@ const Home = () => {
         <section className="py-20 bg-muted">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-foreground mb-6">Why Choose Elite Learning Academy?</h2>
+              <h2 className="text-4xl font-bold text-foreground mb-6">Why Choose Elite Management?</h2>
               <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
                 We provide the highest quality education with industry experts and practical learning experiences that make a real difference in your career.
               </p>

@@ -98,7 +98,7 @@ const Blogs = () => {
     <div className="absolute inset-0 bg-black/80" />
     <img 
       src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1920&q=80"
-      alt="Elite Learning Academy"
+      alt="Elite Management"
       className="w-full h-full object-cover opacity-30"
       style={{ transform: `translateY(${scrollY * 0.3}px)` }}
     />

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState } from 'react';
 import { Phone, Mail, MapPin, Clock, Code, Database, Cloud, Smartphone } from 'lucide-react';
 import ScrollAnimation from '../components/ScrollAnimation';
@@ -60,29 +61,7 @@ const Contact = () => {
     }
   ];
 
-  const quickEnquiryOptions = [
-    {
-      title: 'Data Science Bootcamp',
-      icon: <Database className="w-5 h-5" />,
-      description: '6 months • ₹1.25L'
-    },
-    {
-      title: 'Full Stack Developer',
-      icon: <Code className="w-5 h-5" />,
-      description: '5 months • ₹1.15L'
-    },
-    {
-      title: 'Cloud Engineering',
-      icon: <Cloud className="w-5 h-5" />,
-      description: '4 months • ₹1.35L'
-    },
-    {
-      title: 'Mobile App Development',
-      icon: <Smartphone className="w-5 h-5" />,
-      description: '5 months • ₹1.10L'
-    }
-  ];
-
+  
   return (
     <div className="min-h-screen bg-muted">
      {/* Hero Banner */}
@@ -91,7 +70,7 @@ const Contact = () => {
 
     {/* Background Image */}
     <div
-      className="absolute inset-0 bg-cover bg-center"
+      className="absolute inset-0 bg-cover bg-center bg-black/90"
       style={{
         backgroundImage:
           "url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d')",
@@ -167,36 +146,6 @@ const Contact = () => {
                   </ScrollAnimation>
                 ))}
               </div>
-
-              {/* Quick Enquiry Cards */}
-              <ScrollAnimation>
-                <h3 className="text-2xl font-bold text-foreground mb-6">Popular Bootcamps</h3>
-                <div className="grid grid-cols-2 gap-4">
-                  {quickEnquiryOptions.map((option, index) => (
-                    <div key={index} className="group bg-gradient-to-r from-primary/5 to-accent/5 border border-primary/20 p-4 rounded-xl hover:shadow-lg hover:border-primary transition-all cursor-pointer">
-                      <div className="flex items-center mb-2">
-                        <div className="bg-primary/20 p-2 rounded-lg mr-3 group-hover:bg-primary/30 transition-colors">
-                          {option.icon}
-                        </div>
-                        <h4 className="font-bold text-foreground">{option.title}</h4>
-                      </div>
-                      <p className="text-sm text-muted-foreground">{option.description}</p>
-                    </div>
-                  ))}
-                </div>
-              </ScrollAnimation>
-
-              {/* Map Placeholder */}
-              <ScrollAnimation delay={200}>
-                <div className="mt-12 bg-gradient-to-br from-slate-50 to-muted rounded-2xl h-72 flex items-center justify-center border-2 border-border shadow-lg">
-                  <div className="text-center px-6">
-                    <MapPin className="w-16 h-16 text-primary mx-auto mb-6 opacity-70" />
-                    <h4 className="text-2xl font-bold text-foreground mb-2">Tech Bootcamps Gurgaon</h4>
-                    <p className="text-muted-foreground mb-1">Sector 44, Gurugram</p>
-                    <p className="text-sm text-muted-foreground/70">5 mins from Rajiv Chowk Metro</p>
-                  </div>
-                </div>
-              </ScrollAnimation>
             </div>
 
             {/* Contact Form */}
@@ -250,22 +199,7 @@ const Contact = () => {
                           placeholder="+91 98765 43210"
                         />
                       </div>
-                      <div>
-                        <label className="block text-foreground font-semibold mb-3 text-sm uppercase tracking-wide">Interested In</label>
-                        <select
-                          name="subject"
-                          value={formData.subject}
-                          onChange={handleInputChange}
-                          className="w-full px-5 py-4 bg-background border-2 border-input rounded-xl focus:ring-4 focus:ring-primary/20 focus:border-primary transition-all duration-300 text-lg"
-                        >
-                          <option value="">Choose bootcamp track</option>
-                          <option>Data Science & AI</option>
-                          <option>Full Stack Development</option>
-                          <option>Cloud Engineering</option>
-                          <option>Cybersecurity</option>
-                          <option>Mobile Development</option>
-                        </select>
-                      </div>
+                      
                     </div>
 
                     <div>

@@ -9,6 +9,10 @@ import {
 import { Link } from "react-router-dom";
 
 const Footer = () => {
+  const handleLinkClick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <footer className="bg-secondary text-secondary-foreground pt-20 pb-8">
       <div className="max-w-7xl mx-auto px-4">
@@ -23,7 +27,7 @@ const Footer = () => {
                 <span className="text-white text-xl font-bold">EL</span>
               </div>
               <h3 className="text-xl font-bold tracking-wide">
-                Elite Learning Academy
+                Elite Management
               </h3>
             </div>
 
@@ -33,14 +37,16 @@ const Footer = () => {
             </p>
 
             <div className="flex items-center gap-4">
-              {[Linkedin, Instagram, Facebook].map((Icon, i) => (
+              {[{icon: Linkedin, url: "https://www.linkedin.com/company/elitemanagement"}, {icon: Instagram, url: "https://www.instagram.com/elitemanagement"}, {icon: Facebook, url: "https://www.facebook.com/elitemanagement"}].map((social, i) => (
                 <a
                   key={i}
-                  href="#"
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center
                              hover:bg-primary hover:text-white transition-all duration-300"
                 >
-                  <Icon size={18} />
+                  <social.icon size={18} />
                 </a>
               ))}
             </div>
@@ -61,6 +67,7 @@ const Footer = () => {
                 <li key={i}>
                   <Link
                     to={link.path}
+                    onClick={handleLinkClick}
                     className="text-muted-foreground hover:text-primary transition-colors duration-300"
                   >
                     {link.name}
@@ -70,23 +77,25 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* PROGRAMS */}
+          {/* COURSES */}
           <div>
-            <h4 className="text-lg font-semibold mb-6">Programs</h4>
+            <h4 className="text-lg font-semibold mb-6">Courses</h4>
             <ul className="space-y-3">
-              {[
-                "Management",
-                "Leadership",
-                "Marketing",
-                "Finance",
-                "HR Management",
-              ].map((item, i) => (
+              {
+                [
+                  { name: "Management", path: "/courses#management" },
+                  { name: "Leadership", path: "/courses#leadership" },
+                  { name: "Marketing", path: "/courses#marketing" },
+                  { name: "Finance", path: "/courses#finance" },
+                  { name: "HR Management", path: "/courses#hr" },
+                ].map((course, i) => (
                 <li key={i}>
                   <Link
-                    to="/courses"
+                    to={course.path}
+                    onClick={handleLinkClick}
                     className="text-muted-foreground hover:text-primary transition-colors duration-300"
                   >
-                    {item}
+                    {course.name}
                   </Link>
                 </li>
               ))}

@@ -71,7 +71,7 @@ const Courses = () => {
       rating: 4.6,
       students: 870,
       price: 349,
-      image: 'https://images.unsplash.com/photo-1444723121867-6a1df62530cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f',
       description: 'Advanced financial planning and management techniques.',
       tags: ['Finance', 'Investment', 'Analysis']
     },
@@ -394,7 +394,7 @@ const Courses = () => {
                 Ready to Start Learning?
               </h2>
               <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-                Join over 10,000 students who are already transforming their careers with Elite Learning Academy
+                Join over 10,000 students who are already transforming their careers with Elite Management
               </p>
               <button className="px-10 py-5 bg-primary text-primary-foreground rounded-xl font-bold text-lg hover:bg-primary/90 hover:scale-105 transition-all shadow-xl">
                 Browse All Courses

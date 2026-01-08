@@ -13,7 +13,7 @@ const About = () => {
               Strategic Learning, Personalized Growth
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              At Elite Learning Academy, we bridge the gap between knowledge and practical application, 
+              At Elite Management, we bridge the gap between knowledge and practical application, 
               fostering growth and success through our comprehensive educational programs.
             </p>
           </div>
@@ -26,7 +26,7 @@ const About = () => {
                 Excellence in Education
               </h3>
               <p className="text-muted-foreground mb-6">
-                Founded in 2011, Elite Learning Academy has evolved into a premier educational institution, 
+                Founded in 2011, Elite Management has evolved into a premier educational institution, 
                 specializing in connecting passionate learners with expert instructors to foster growth and success.
               </p>
               <p className="text-muted-foreground mb-6">
@@ -69,7 +69,7 @@ const About = () => {
                   to achieve their professional goals and make a positive impact in their fields."
                 </p>
                 <h4 className="text-lg font-bold text-foreground">Educational Director</h4>
-                <p className="text-muted-foreground">Elite Learning Academy</p>
+                <p className="text-muted-foreground">Elite Management</p>
               </div>
             </div>
           </div>

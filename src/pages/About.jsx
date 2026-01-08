@@ -47,7 +47,7 @@ const About = () => {
   {
     year: "2011",
     title: "Foundation",
-    desc: "Elite Learning Academy was established with a vision to deliver quality education."
+    desc: "Elite Management was established with a vision to deliver quality education."
   },
   {
     year: "2014",
@@ -82,7 +82,7 @@ const About = () => {
           <div className="absolute inset-0 bg-black/80" />
           <img
             src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1920&q=80"
-            alt="Elite Learning Academy"
+            alt="Elite Management"
             className="w-full h-full object-cover opacity-30"
             style={{ transform: `translateY(${scrollY * 0.3}px)` }}
           />
@@ -95,12 +95,12 @@ const About = () => {
         {/* Content */}
         <div className="relative z-10 text-center max-w-5xl px-6">
           <span className="inline-block mb-6 px-6 py-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm tracking-widest uppercase font-semibold animate-fade-in">
-            About Elite Learning Academy
+            About Elite Management
           </span>
 
           <h1 className="text-6xl md:text-8xl font-bold text-white leading-tight mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }}>
             Shaping Futures Through <br />
-            <span className="text-gray-900">Quality Education</span>
+            <span className="text-blue-600">Quality Education</span>
           </h1>
 
         
@@ -150,10 +150,10 @@ const About = () => {
               Our Story
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Welcome to Elite Learning Academy
+              Welcome to Elite Management
             </h2>
             <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
-              Founded in 2011, Elite Learning Academy has evolved into a premier educational institution,
+              Founded in 2011, Elite Management has evolved into a premier educational institution,
               bridging the gap between academic knowledge and practical industry skills.
             </p>
           </div>
@@ -261,7 +261,7 @@ const About = () => {
 
               {/* Dot */}
               <div className="hidden md:flex relative z-10 items-center justify-center">
-                <div className="w-6 h-6 rounded-full bg-primary border-4 border-background shadow-xl animate-pulse" />
+                <div className="w-6 h-6 dash-full bg-primary border-4 border-background shadow-xl " />
               </div>
 
               <div className="flex-1" />
@@ -403,7 +403,7 @@ const About = () => {
                 Ready to Transform Your Future?
               </h2>
               <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-                Join thousands of successful professionals who chose Elite Learning Academy for their career transformation.
+                Join thousands of successful professionals who chose Elite Management for their career transformation.
               </p>
               <button className="px-10 py-5 bg-primary text-primary-foreground rounded-xl font-bold text-lg hover:bg-primary/90 hover:scale-105 transition-all shadow-xl">
                 Start Your Journey Today

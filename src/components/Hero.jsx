@@ -12,7 +12,7 @@ const Hero = () => {
       title: "LEARNING EXCELLENCE",
       subtitle: "Transform Your Knowledge",
       description:
-        "Elite Learning Academy provides comprehensive educational programs, connecting passionate learners with expert instructors to foster growth and success.",
+        "Elite Management provides comprehensive educational programs, connecting passionate learners with expert instructors to foster growth and success.",
       buttonText: "ENROLL NOW",
     },
     {
