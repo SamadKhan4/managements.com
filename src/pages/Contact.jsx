@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Code, Database, Cloud, Smartphone } from 'lucide-react';
 import ScrollAnimation from '../components/ScrollAnimation';
 import Footer from '../components/Footer';
 
@@ -23,7 +23,7 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // In a real application, you would submit the form data to a server
-    alert('Message sent successfully! We will contact you soon.');
+    alert('Thank you! Our admissions team will contact you within 24 hours.');
     setFormData({
       name: '',
       email: '',
@@ -36,85 +36,164 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: <Phone className="w-6 h-6" />,
-      title: 'Phone',
-      content: '+91 9958913539',
-      description: 'Mon-Fri from 9:00 AM to 6:00 PM'
+      title: 'Admissions Hotline',
+      content: '+91 99589 13539',
+      description: 'Mon-Sat 8:00 AM - 8:00 PM IST'
     },
     {
       icon: <Mail className="w-6 h-6" />,
-      title: 'Email',
-      content: 'shikhag@elitemanagement.in',
-      description: 'We will respond within 24 hours'
+      title: 'Email Support',
+      content: 'admissions@techbootcamps.in',
+      description: 'Response within 12 hours'
     },
     {
       icon: <MapPin className="w-6 h-6" />,
-      title: 'Office',
-      content: 'New Delhi',
-      description: 'India'
+      title: 'Training Center',
+      content: 'Gurgaon, Haryana',
+      description: 'India - 122001'
     },
     {
       icon: <Clock className="w-6 h-6" />,
-      title: 'Working Hours',
-      content: '9:00 AM - 6:00 PM',
-      description: 'Monday to Friday'
+      title: 'Support Hours',
+      content: '24/7 Chat Support',
+      description: 'Live chat available all week'
+    }
+  ];
+
+  const quickEnquiryOptions = [
+    {
+      title: 'Data Science Bootcamp',
+      icon: <Database className="w-5 h-5" />,
+      description: '6 months • ₹1.25L'
+    },
+    {
+      title: 'Full Stack Developer',
+      icon: <Code className="w-5 h-5" />,
+      description: '5 months • ₹1.15L'
+    },
+    {
+      title: 'Cloud Engineering',
+      icon: <Cloud className="w-5 h-5" />,
+      description: '4 months • ₹1.35L'
+    },
+    {
+      title: 'Mobile App Development',
+      icon: <Smartphone className="w-5 h-5" />,
+      description: '5 months • ₹1.10L'
     }
   ];
 
   return (
     <div className="min-h-screen bg-muted">
-      {/* Hero Banner */}
-      <ScrollAnimation>
-        <div className="relative h-96 bg-primary flex items-center justify-center">
-          <div className="text-center text-white">
-            <h1 className="text-5xl font-bold mb-4 text-primary-foreground">Contact Us</h1>
-            <p className="text-xl text-primary-foreground">Get in Touch with Our Team</p>
-          </div>
-        </div>
-      </ScrollAnimation>
+     {/* Hero Banner */}
+<ScrollAnimation>
+  <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+
+    {/* Background Image */}
+    <div
+      className="absolute inset-0 bg-cover bg-center"
+      style={{
+        backgroundImage:
+          "url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d')",
+      }}
+    />
+
+
+
+    {/* Content */}
+    <div className="relative z-10 text-center px-6 max-w-4xl">
+      <span className="inline-block mb-6 px-6 py-2 rounded-full bg-white/10 text-white text-sm tracking-widest uppercase">
+        Admissions Open
+      </span>
+
+      <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
+        Ready to <span className="text-gradient">Start Your Journey?</span>
+      </h1>
+
+      <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-10">
+        Get in touch with our admissions team to explore bootcamp details,
+        scholarship opportunities, and career-focused learning paths.
+      </p>
+
+      {/* CTA Buttons */}
+      <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <button className="px-10 py-4 rounded-xl bg-white text-primary font-bold text-lg hover:scale-105 hover:shadow-xl transition-all">
+          Talk to Admissions
+        </button>
+
+        <button className="px-10 py-4 rounded-xl border border-white/40 text-white font-semibold text-lg hover:bg-white/10 transition-all">
+          View Programs
+        </button>
+      </div>
+    </div>
+
+  </section>
+</ScrollAnimation>
+
+
 
       {/* Contact Content */}
       <div className="py-12 px-4">
         <div className="max-w-7xl mx-auto">
           <ScrollAnimation>
-            <div className="text-center mb-12">
-              <h1 className="text-4xl font-bold text-foreground mb-4">Contact Us</h1>
+            <div className="text-center mb-16">
+              <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Get Bootcamp Info</h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Have questions about our courses? Get in touch with our team and we'll be happy to assist you.
+                Speak with our career counselors about course details, placement records, and flexible payment options.
               </p>
             </div>
           </ScrollAnimation>
-                
+          
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Information */}
             <div>
               <ScrollAnimation>
-                <h2 className="text-3xl font-bold text-foreground mb-8">Get in Touch</h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8">Contact Details</h2>
               </ScrollAnimation>
               
               <div className="space-y-6 mb-12">
                 {contactInfo.map((info, index) => (
                   <ScrollAnimation key={index} animation="fade-up" delay={index * 100}>
-                    <div key={index} className="flex items-start">
-                      <div className="bg-primary/20 text-primary p-3 rounded-lg mr-4">
+                    <div className="group flex items-start p-6 bg-card border border-border rounded-2xl hover:shadow-xl hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">
+                      <div className="bg-gradient-to-br from-primary to-accent text-primary-foreground p-4 rounded-xl mr-6 flex-shrink-0 group-hover:scale-110 transition-transform">
                         {info.icon}
                       </div>
-                      <div>
-                        <h3 className="text-lg font-bold text-foreground">{info.title}</h3>
-                        <p className="text-muted-foreground font-medium">{info.content}</p>
-                        <p className="text-muted-foreground/70 text-sm">{info.description}</p>
+                      <div className="min-w-0 flex-1">
+                        <h3 className="text-xl font-bold text-foreground mb-1">{info.title}</h3>
+                        <p className="text-primary font-semibold text-lg mb-1 truncate">{info.content}</p>
+                        <p className="text-muted-foreground text-sm">{info.description}</p>
                       </div>
                     </div>
                   </ScrollAnimation>
                 ))}
               </div>
 
-              {/* Map Placeholder */}
+              {/* Quick Enquiry Cards */}
               <ScrollAnimation>
-                <div className="bg-muted rounded-xl h-64 flex items-center justify-center">
-                  <div className="text-center">
-                    <MapPin className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
-                    <p className="text-muted-foreground">Map Location</p>
-                    <p className="text-muted-foreground/70 text-sm">New Delhi, India</p>
+                <h3 className="text-2xl font-bold text-foreground mb-6">Popular Bootcamps</h3>
+                <div className="grid grid-cols-2 gap-4">
+                  {quickEnquiryOptions.map((option, index) => (
+                    <div key={index} className="group bg-gradient-to-r from-primary/5 to-accent/5 border border-primary/20 p-4 rounded-xl hover:shadow-lg hover:border-primary transition-all cursor-pointer">
+                      <div className="flex items-center mb-2">
+                        <div className="bg-primary/20 p-2 rounded-lg mr-3 group-hover:bg-primary/30 transition-colors">
+                          {option.icon}
+                        </div>
+                        <h4 className="font-bold text-foreground">{option.title}</h4>
+                      </div>
+                      <p className="text-sm text-muted-foreground">{option.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </ScrollAnimation>
+
+              {/* Map Placeholder */}
+              <ScrollAnimation delay={200}>
+                <div className="mt-12 bg-gradient-to-br from-slate-50 to-muted rounded-2xl h-72 flex items-center justify-center border-2 border-border shadow-lg">
+                  <div className="text-center px-6">
+                    <MapPin className="w-16 h-16 text-primary mx-auto mb-6 opacity-70" />
+                    <h4 className="text-2xl font-bold text-foreground mb-2">Tech Bootcamps Gurgaon</h4>
+                    <p className="text-muted-foreground mb-1">Sector 44, Gurugram</p>
+                    <p className="text-sm text-muted-foreground/70">5 mins from Rajiv Chowk Metro</p>
                   </div>
                 </div>
               </ScrollAnimation>
@@ -123,96 +202,106 @@ const Contact = () => {
             {/* Contact Form */}
             <div>
               <ScrollAnimation>
-                <div className="bg-card rounded-xl shadow-lg p-8">
-                  <h2 className="text-3xl font-bold text-foreground mb-6">Send us a Message</h2>
-                  <p className="text-muted-foreground mb-8">
-                    Have any questions about our courses or need assistance? Fill out the form below and our team will get back to you as soon as possible.
-                  </p>
+                <div className="sticky top-24 bg-card rounded-3xl shadow-2xl border border-border/50 p-8 lg:p-10">
+                  <div className="text-center mb-8">
+                    <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">Quick Enquiry</h2>
+                    <p className="text-muted-foreground text-lg">
+                      Fill out 30 seconds form → Get callback from counselor
+                    </p>
+                  </div>
 
-                  <form onSubmit={handleSubmit}>
-                    <div className="grid md:grid-cols-2 gap-6 mb-6">
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="grid md:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-foreground font-medium mb-2">Full Name *</label>
+                        <label className="block text-foreground font-semibold mb-3 text-sm uppercase tracking-wide">Full Name *</label>
                         <input
                           type="text"
                           name="name"
                           value={formData.name}
                           onChange={handleInputChange}
                           required
-                          className="w-full px-4 py-3 border border-input rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent"
-                          placeholder="Enter your full name"
+                          className="w-full px-5 py-4 bg-background border-2 border-input rounded-xl focus:ring-4 focus:ring-primary/20 focus:border-primary transition-all duration-300 text-lg"
+                          placeholder="Your full name"
                         />
                       </div>
                       <div>
-                        <label className="block text-foreground font-medium mb-2">Email Address *</label>
+                        <label className="block text-foreground font-semibold mb-3 text-sm uppercase tracking-wide">Email / WhatsApp *</label>
                         <input
-                          type="email"
+                          type="text"
                           name="email"
                           value={formData.email}
                           onChange={handleInputChange}
                           required
-                          className="w-full px-4 py-3 border border-input rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent"
-                          placeholder="Enter your email address"
+                          className="w-full px-5 py-4 bg-background border-2 border-input rounded-xl focus:ring-4 focus:ring-primary/20 focus:border-primary transition-all duration-300 text-lg"
+                          placeholder="your@email.com"
                         />
                       </div>
                     </div>
 
-                    <div className="grid md:grid-cols-2 gap-6 mb-6">
+                    <div className="grid md:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-foreground font-medium mb-2">Phone Number</label>
+                        <label className="block text-foreground font-semibold mb-3 text-sm uppercase tracking-wide">Phone Number</label>
                         <input
                           type="tel"
                           name="phone"
                           value={formData.phone}
                           onChange={handleInputChange}
-                          className="w-full px-4 py-3 border border-input rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent"
-                          placeholder="Enter your phone number"
+                          className="w-full px-5 py-4 bg-background border-2 border-input rounded-xl focus:ring-4 focus:ring-primary/20 focus:border-primary transition-all duration-300 text-lg"
+                          placeholder="+91 98765 43210"
                         />
                       </div>
                       <div>
-                        <label className="block text-foreground font-medium mb-2">Subject</label>
-                        <input
-                          type="text"
+                        <label className="block text-foreground font-semibold mb-3 text-sm uppercase tracking-wide">Interested In</label>
+                        <select
                           name="subject"
                           value={formData.subject}
                           onChange={handleInputChange}
-                          className="w-full px-4 py-3 border border-input rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent"
-                          placeholder="Enter subject"
-                        />
+                          className="w-full px-5 py-4 bg-background border-2 border-input rounded-xl focus:ring-4 focus:ring-primary/20 focus:border-primary transition-all duration-300 text-lg"
+                        >
+                          <option value="">Choose bootcamp track</option>
+                          <option>Data Science & AI</option>
+                          <option>Full Stack Development</option>
+                          <option>Cloud Engineering</option>
+                          <option>Cybersecurity</option>
+                          <option>Mobile Development</option>
+                        </select>
                       </div>
                     </div>
 
-                    <div className="mb-6">
-                      <label className="block text-foreground font-medium mb-2">Message *</label>
+                    <div>
+                      <label className="block text-foreground font-semibold mb-3 text-sm uppercase tracking-wide">Message (Optional)</label>
                       <textarea
                         name="message"
                         value={formData.message}
                         onChange={handleInputChange}
-                        required
-                        rows="6"
-                        className="w-full px-4 py-3 border border-input rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent"
-                        placeholder="Enter your message here..."
+                        rows="4"
+                        className="w-full px-5 py-4 bg-background border-2 border-input rounded-xl focus:ring-4 focus:ring-primary/20 focus:border-primary transition-all duration-300 text-lg resize-vertical"
+                        placeholder="Any specific questions about course, fees, or placement?"
                       ></textarea>
                     </div>
 
                     <button
                       type="submit"
-                      className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold py-4 px-6 rounded-lg text-lg transition-colors duration-300"
+                      className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground font-bold py-5 px-8 rounded-2xl text-xl shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 border-2 border-transparent hover:border-primary/50"
                     >
-                      Send Message
+                      Get Free Counseling Call →
                     </button>
                   </form>
-                </div>
-              </ScrollAnimation>
 
-              {/* Quick Contact */}
-              <ScrollAnimation>
-                <div className="mt-8 bg-primary rounded-xl shadow-lg p-6 text-primary-foreground">
-                  <h3 className="text-xl font-bold mb-4">Need Immediate Assistance?</h3>
-                  <p className="mb-4">Call us directly for urgent inquiries</p>
-                  <div className="flex items-center">
-                    <Phone className="w-5 h-5 mr-2" />
-                    <span className="text-lg font-bold">+91 9958913539</span>
+                  {/* Trust Indicators */}
+                  <div className="mt-8 pt-8 border-t border-border grid grid-cols-3 gap-6 text-center">
+                    <div>
+                      <div className="text-2xl font-bold text-primary mb-1">94%</div>
+                      <div className="text-xs text-muted-foreground uppercase tracking-wide">Placement Rate</div>
+                    </div>
+                    <div>
+                      <div className="text-2xl font-bold text-primary mb-1">28K+</div>
+                      <div className="text-xs text-muted-foreground uppercase tracking-wide">Graduates</div>
+                    </div>
+                    <div>
+                      <div className="text-2xl font-bold text-primary mb-1">₹25LPA</div>
+                      <div className="text-xs text-muted-foreground uppercase tracking-wide">Avg Package</div>
+                    </div>
                   </div>
                 </div>
               </ScrollAnimation>
