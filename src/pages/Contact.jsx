@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Phone, Mail, MapPin, Clock, Code, Database, Cloud, Smartphone } from 'lucide-react';
 import ScrollAnimation from '../components/ScrollAnimation';
 import Footer from '../components/Footer';
+import { apiPost } from '../utils/api';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -21,17 +22,35 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const [loading, setLoading] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // In a real application, you would submit the form data to a server
-    alert('Thank you! Our admissions team will contact you within 24 hours.');
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      subject: '',
-      message: ''
-    });
+    
+    setLoading(true);
+    setSubmitStatus(null);
+    
+    try {
+      // Submit form data using our API utility
+      const response = await apiPost('/contact', formData);
+      
+      // Reset form on success
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: ''
+      });
+      
+      setSubmitStatus({ type: 'success', message: 'Thank you! Our admissions team will contact you within 24 hours.' });
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitStatus({ type: 'error', message: 'Failed to submit form. Please try again.' });
+    } finally {
+      setLoading(false);
+    }
   };
 
   const contactInfo = [
@@ -216,10 +235,18 @@ const Contact = () => {
 
                     <button
                       type="submit"
-                      className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground font-bold py-5 px-8 rounded-2xl text-xl shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 border-2 border-transparent hover:border-primary/50"
+                      disabled={loading}
+                      className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground font-bold py-5 px-8 rounded-2xl text-xl shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 border-2 border-transparent hover:border-primary/50 disabled:opacity-70 disabled:cursor-not-allowed"
                     >
-                      Get Free Counseling Call →
+                      {loading ? 'Submitting...' : 'Get Free Counseling Call →'}
                     </button>
+                                          
+                    {/* Status Message */}
+                    {submitStatus && (
+                      <div className={`mt-4 p-4 rounded-xl text-center ${submitStatus.type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+                        {submitStatus.message}
+                      </div>
+                    )}
                   </form>
 
                   {/* Trust Indicators */}
