@@ -44,22 +44,27 @@ const Navbar = () => {
           : "bg-[#161E54]/90 text-white"
       }`}
     >
-      <div className="container-custom">
-        <div className="flex h-16 items-center justify-between">
+      <div className=" max-w mx-auto px-4 sm:px-4 lg:px-6">
+        <div className="flex h-20 items-center justify-between">
 
-          {/* Logo */}
-          <Link
-            to="/"
-            onClick={handleLinkClick}
-            className="flex items-center gap-3 font-bold tracking-wide hover:opacity-90 transition-opacity duration-300"
-          >
-            <img
-              src="/images/logo/logo-em.png"
-              alt="Elite Managements Logo"
-              className="h-10 w-auto transition-transform duration-300 hover:scale-105"
-            />
-            <span className="text-xl">ELITE MANAGEMENTS</span>
-          </Link>
+         <Link
+  to="/"
+  onClick={handleLinkClick}
+  className="flex items-center gap-3 font-bold tracking-wide hover:opacity-90 transition-opacity duration-300"
+>
+  <div className="h-max w-auto rounded-full  flex items-center ">
+    <img
+      src="/images/logo/logo-em.png"
+      alt="Elite Managements Logo"
+      className="h-8 w-auto"
+    />
+  </div>
+
+  <span className="text-xl font-bold leading-none">
+    ELITE&nbsp;&nbsp;MANAGEMENTS
+  </span>
+</Link>
+
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8 text-sm font-semibold">

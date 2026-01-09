@@ -1,9 +1,11 @@
 /* eslint-disable no-useless-escape */
 import { useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
+import ContactModal from "./ContactModal";
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [showContact, setShowContact] = useState(false);
 
   const slides = [
     {
@@ -103,6 +105,8 @@ const Hero = () => {
 
               <button
                 key={`btn-${currentSlide}`}
+                type="button"
+                onClick={() => setShowContact(true)}
                 className="bg-accent hover:bg-accent/90 text-white font-bold py-4 px-8 rounded-full text-lg slide-in-left flex items-center mx-auto hover-lift"
                 style={{ animationDelay: getTextDelay(3) }}
               >
@@ -128,6 +132,13 @@ const Hero = () => {
           />
         ))}
       </div>
+      <ContactModal
+        open={showContact}
+        onClose={() => setShowContact(false)}
+        onSubmit={(data) => {
+          console.log("Contact form submitted:", data);
+        }}
+      />
     </div>
   );
 };
